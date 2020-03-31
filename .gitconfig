@@ -3,7 +3,7 @@
     editor = vim
 [user]
     name = Adrian Siembida
-    email = pl0133@eos-ksi.pl
+    email = bida94@gmail.com
 [alias]
     ce = config --global -e
     skroty = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1 => \\2/' | grep -v 'alias'| awk 'BEGIN { FS = \"=>\" }{ printf(\"%-20s=>%s\\n\", $1,$2)}'|sort
