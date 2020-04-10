@@ -251,7 +251,7 @@ let g:lightline = {
 \   'left': [
 \       ['mode', 'paste'],
 \        ['gitbranch', 'gitchange'],
-\        ['relativepath', 'modified'],
+\        ['relativepath'],
 \    ],
 \   'right': [
 \       ['percent', 'lineinfo'],
