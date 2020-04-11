@@ -11,27 +11,43 @@ set rtp+=~/.fzf
 
 
 call plug#begin('~/.local/share/nvim/plugged')
+" for  gui
 Plug 'ryanoasis/vim-devicons'
-Plug 'sheerun/vim-polyglot'
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
-Plug 'w0rp/ale'
-Plug 'davidhalter/jedi-vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
+Plug 'freeo/vim-kalisi'
+Plug 'itchyny/lightline.vim'
+Plug 'yggdroot/indentline'
+
+" file openers
 Plug 'scrooloose/nerdtree'
-Plug 'ryanoasis/vim-devicons'
 Plug 'vwxyutarooo/nerdtree-devicons-syntax'
-Plug 'jiangmiao/auto-pairs'
-Plug 'universal-ctags/ctags'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'yuki-ycino/fzf-preview.vim'
-Plug 'itchyny/lightline.vim'
-Plug 'yggdroot/indentline'
-"Plug 'KeitaNakamura/neodark.vim'
-Plug 'freeo/vim-kalisi'
+
+" completion and clear code
+Plug 'w0rp/ale'
+Plug 'davidhalter/jedi-vim'
+Plug 'zchee/deoplete-jedi'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ervandew/supertab'
+
+" colors of syntax
+Plug 'sheerun/vim-polyglot'
+Plug 'luochen1990/rainbow'
+
+" git
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+
+" autoclose brackets and html tags
+Plug 'jiangmiao/auto-pairs'
+Plug 'alvan/vim-closetag'
+
+" mayby in futer:
+" snippets
+" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
+"
 call plug#end()
 
 
