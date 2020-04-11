@@ -1,4 +1,5 @@
-INSTALATION:
+<h3>INSTALATION FOR UBUNTU:</h3>
+<b>=========================</b>
 
     sudo apt-get -y install tmux neovim git && \
     cd && \
