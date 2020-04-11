@@ -168,6 +168,14 @@ nmap <Leader>pi :PlugInstall<CR>
 nmap <Leader>pu :PlugInstall!<CR> " Because this also updates
 nmap <Leader>pc :PlugClean<CR>
 
+" ---------------
+" rainbow
+" ---------------
+let g:rainbow_active = 1
+let g:rainbow_conf = {
+\   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+\   'ctermfgs': ['blue', 'green', 'red', 'magenta'],
+\}
 
 " ---------------
 " gitgutter
