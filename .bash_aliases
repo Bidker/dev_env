@@ -2,6 +2,7 @@
 alias skroty="cat ~/.bash_aliases"
 alias ce="nvim ~/.bash_aliases"
 alias so="source ~/.bashrc"
+alias clear_swap="rm -rf ~/.local/share/nvim/swap/"
 
 # git aliases
 alias g="git"
