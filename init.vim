@@ -57,7 +57,7 @@ call plug#end()
 colorscheme kalisi
 set ruler " Ruler on
 set nu " Line numbers on
-set nowrap " Line wrapping off
+set wrap linebreak nolist
 highlight LineNr guibg=#202020 ctermbg=0
 set laststatus=2 " Always show the statusline
 set cmdheight=2
@@ -174,7 +174,7 @@ nmap <Leader>pc :PlugClean<CR>
 let g:rainbow_active = 1
 let g:rainbow_conf = {
 \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
-\   'ctermfgs': ['lightblue', 'green', 'red', 'magenta'],
+\   'ctermfgs': ['lightblue', 'green', 'yellow', 'magenta'],
 \}
 
 " ---------------
@@ -303,7 +303,7 @@ let g:lightline = {
 \}
 
 function! MyFiletype()
-  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() . ' ' : 'no ft') : ''
 endfunction
 
 function! MyFileformat()
