@@ -5,7 +5,8 @@
     My configuration for neovim and tmux.
     In .bash_aliases file is my aliases for git and docker.
     It's works for neovim=v0.3.8 and tmux=2.9a.
-    Install script can be install spotify. I get installation step from: https://www.spotify.com/pl/download/linux/
+    Install script can be install spotify.
+    I get installation step from: [https://www.spotify.com/pl/download/linux/]
 
 
 
