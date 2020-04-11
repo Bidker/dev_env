@@ -14,7 +14,6 @@ then
     curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
     echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
     sudo apt-get update && sudo apt-get install spotify-client
-    python3 -m pip install spotify-cli-linux
 fi
 
 printf "\n${COLOR}Remove original file init.vim, .tmux.conf and .bash_aliases ${NC}"
@@ -26,6 +25,7 @@ ln -s ~/rcfile/.bash_aliases ~/.bash_aliases
 ln -s ~/rcfile/.tmux.conf ~/.tmux.conf
 
 printf "\n${COLOR}Install plugins for tmux and neovim ${NC} \n"
+python3 -m pip install spotify-cli-linux
 ~/.tmux/plugins/tpm/bin/install_plugins
 nvim +PlugInstall +qall
 
