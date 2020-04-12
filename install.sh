@@ -83,7 +83,7 @@ rm ~/.config/nvim/init.vim ~/.bash_aliases ~/.tmux.conf
 printf "\n${COLOR}Create sybolic link for init.vim, .tmux.con and .bash_aliases ${NC}"
 ln -s ~/dev_env/init.vim ~/.config/nvim/init.vim
 ln -s ~/dev_env/.bash_aliases ~/.bash_aliases
-ln -s ~/dev_env/.tmux.conf ~/.tmux.conf
+ln -s ~/dev_env/tmux.conf ~/.tmux.conf
 
 printf "\n${COLOR}Install plugins for tmux and neovim ${NC} \n"
 python3 -m pip install spotify-cli-linux
