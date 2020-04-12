@@ -1,6 +1,5 @@
 let mapleader=";"
 
-
 set nocompatible
 filetype off
 
@@ -173,8 +172,7 @@ nmap <Leader>pc :PlugClean<CR>
 " ---------------
 let g:rainbow_active = 1
 let g:rainbow_conf = {
-\   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
-\   'ctermfgs': ['lightblue', 'green', 'yellow', 'magenta'],
+\   'ctermfgs': ['lightblue', 'green', 'yellow', 'magenta', 'red'],
 \}
 
 " ---------------
