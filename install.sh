@@ -16,6 +16,10 @@ then
     sudo apt-get update && sudo apt-get install spotify-client
 fi
 
+printf "\n${COLOR}Create folders for fonts and i copy font from repository to new folder${NC}"
+mkdir -p ~/.local/share/fonts
+cp -r ~/rcfile/fonts/* ~/.local/share/fonts/
+
 printf "\n${COLOR}Remove original file init.vim, .tmux.conf and .bash_aliases ${NC}"
 rm ~/.config/nvim/init.vim ~/.bash_aliases ~/.tmux.conf
 
