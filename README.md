@@ -2,12 +2,12 @@
 <b>===========================================</b>
 </br>
 </br>
-My configuration for neovim and tmux. </br>
+My configuration for Neovim and Tmux. </br>
 In .bash_aliases file is my aliases for git and docker. </br>
 Install script include:
 <ul>
     <li>[tmux](https://github.com/tmux/tmux/wiki) (cofiguration works for 2.9a version)</li>
-    <li>[neovim](https://neovim.io/) (configuration works for v0.3.8 version)</li>
+    <li>[NeoVim](https://neovim.io/) (configuration works for v0.3.8 version)</li>
     <li>[DBeaver](https://dbeaver.io/) (Optional instalation)</li>
     <li>[Docker](https://www.docker.com/) (Optional instalation)</li>
     <li>[Docker Compose](https://docs.docker.com/compose/) (Optional instalation)</li>
