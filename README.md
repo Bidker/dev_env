@@ -4,9 +4,14 @@
 </br>
 My configuration for neovim and tmux. </br>
 In .bash_aliases file is my aliases for git and docker. </br>
-It's works for neovim=v0.3.8 and tmux=2.9a. </br>
-Install script can be install spotify. </br>
-I get installation step from [spotify site](www.spotify.com/pl/download/linux/)
+Install script include:
+<ul>
+    <li>[tmux](https://github.com/tmux/tmux/wiki) (cofiguration works for 2.9a version)</li>
+    <li>[neovim](https://neovim.io/) (configuration works for v0.3.8 version)</li>
+    <li>[DBeaver](https://dbeaver.io/) (Optional instalation)</li>
+    <li>[Spotify](https://www.spotify.com/) (Optional instalation)</li>
+    <li>[JetBrains Font](https://www.jetbrains.com/lp/mono/) (You must set it manualy)</li>
+</ul>
 </br>
 </br>
 
@@ -16,5 +21,5 @@ I get installation step from [spotify site](www.spotify.com/pl/download/linux/)
 
     sudo apt-get -y install git && \
     cd && \
-    git clone git@github.com:Bidker/rcfile.git  && \
+    git clone git@github.com:Bidker/dev_env.git  && \
     bash ~/rcfile/install.sh
