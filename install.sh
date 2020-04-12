@@ -93,4 +93,5 @@ nvim +PlugInstall +qall
 printf "\n${COLOR}Source .bashrc ${NC} \n"
 source ~/.bashrc
 
-printf "\n${COLOR}Done! Enjoy! ${NC} \n\n"
+printf "\n${COLOR}Now you can install vim plugin in DBeaver: https://github.com/dbeaver/dbeaver/issues/3448 ${NC} \n"
+printf "${COLOR}Done! Enjoy! ${NC} \n\n"
