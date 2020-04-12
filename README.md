@@ -9,6 +9,8 @@ Install script include:
     <li>[tmux](https://github.com/tmux/tmux/wiki) (cofiguration works for 2.9a version)</li>
     <li>[neovim](https://neovim.io/) (configuration works for v0.3.8 version)</li>
     <li>[DBeaver](https://dbeaver.io/) (Optional instalation)</li>
+    <li>[Docker](https://www.docker.com/) (Optional instalation)</li>
+    <li>[Docker Compose](https://docs.docker.com/compose/) (Optional instalation)</li>
     <li>[Spotify](https://www.spotify.com/) (Optional instalation)</li>
     <li>[JetBrains Font](https://www.jetbrains.com/lp/mono/) (You must set it manualy)</li>
 </ul>
