@@ -26,9 +26,8 @@ Plug 'yuki-ycino/fzf-preview.vim'
 " completion and clear code
 Plug 'w0rp/ale'
 Plug 'davidhalter/jedi-vim'
-Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'ervandew/supertab'
+Plug 'zchee/deoplete-jedi'
 
 " colors of syntax
 Plug 'sheerun/vim-polyglot'
@@ -37,6 +36,7 @@ Plug 'luochen1990/rainbow'
 " git
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'idanarye/vim-merginal'
 
 " autoclose brackets and html tags
 Plug 'jiangmiao/auto-pairs'
@@ -156,6 +156,9 @@ nnoremap <leader>so :source ~/.config/nvim/init.vim<CR><ESC>
 " for django models
 nnoremap <leader>v averbose_name=_('')<ESC>hi
 
+" edit neovim config
+nmap <silent> <leader>v :e ~/.config/nvim/init.vim<CR>
+
 " ---------------
 " shortcruts for plugins
 " ---------------
@@ -190,6 +193,11 @@ nmap <Leader>gw :Gwrite<CR>
 nmap <Leader>gb :Gblame<CR>
 nmap <Leader>gs :Gstatus<CR>
 
+
+" ---------------
+" merginal
+" ---------------
+nmap <Leader>gm :Merginal<CR>
 
 " ---------------
 " ale
@@ -230,9 +238,11 @@ let g:jedi#rename_command = "<leader>r"
 " ---------------
 " deoplete-jedi
 " ---------------
-let g:deoplete#enable_at_startup = 1
-let g:python3_host_prog = '/usr/bin/python3'
-let g:python_host_prog = '/usr/bin/python'
+let g:deoplete#enable_at_startup                    = 1
+let g:deoplete#enable_smart_case                    = 1
+let g:deoplete#sources#syntax#min_keyword_length    = 2
+let g:python3_host_prog                             = '/usr/bin/python3'
+let g:python_host_prog                              = '/usr/bin/python'
 
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"

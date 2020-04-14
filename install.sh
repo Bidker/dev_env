@@ -77,15 +77,19 @@ mkdir -p ~/.local/share/fonts
 cp -r ~/dev_env/fonts/* ~/.local/share/fonts/
 printf "\n${COLOR}You cant set new font in terminal preferences${NC}"
 
-printf "\n${COLOR}Remove original file init.vim, .tmux.conf and .bash_aliases ${NC}"
-rm ~/.config/nvim/init.vim ~/.bash_aliases ~/.tmux.conf
+printf "\n${COLOR}Remove original file flake8, init.vim, .tmux.conf and .bash_aliases ${NC}"
+rm ~/.config/nvim/init.vim ~/.bash_aliases ~/.tmux.conf ~/.config/flake8
 
-printf "\n${COLOR}Create sybolic link for init.vim, .tmux.con and .bash_aliases ${NC}"
+printf "\n${COLOR}Create sybolic link for flake8, init.vim, .tmux.con and .bash_aliases ${NC}"
 ln -s ~/dev_env/init.vim ~/.config/nvim/init.vim
 ln -s ~/dev_env/.bash_aliases ~/.bash_aliases
 ln -s ~/dev_env/tmux.conf ~/.tmux.conf
+ln -s ~/dev_env/flake8 ~/.config/flake8
 
 printf "\n${COLOR}Install plugins for tmux and neovim ${NC} \n"
+python3 -m pip install jedi
+python3 -m pip install  --user pynvim
+python3 -m pip install flake8
 python3 -m pip install spotify-cli-linux
 ~/.tmux/plugins/tpm/bin/install_plugins
 nvim +PlugInstall +qall

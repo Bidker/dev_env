@@ -20,7 +20,7 @@ alias gap="git add -p"
 alias gps="git push origin"
 alias gpl="git pull origin"
 alias grbs="git checkout develop && git pull origin develop && git checkout $1 && git rebase develop"
-alias gamig="git add apps/*/migrations/*.py"
+alias gamig="git add *apps/*/migrations/*.py"
 
 alias g_nw_tsk="git checkout develop && git pull origin develop && git checkout -b $1"
 
