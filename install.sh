@@ -23,9 +23,9 @@ elif [[ "$response" =~ ^([sS]) ]]
 then
     printf "\n${COLOR}Do you want install DBeaver? (project site: https://dbeaver.io/) [Y/n] ${NC}"
     read -r -p "" install_dbeaver
-    printf "\n${COLOR}Do you want install Docker? (project site: https://www.spotify.com/) [Y/n] ${NC}"
+    printf "\n${COLOR}Do you want install Docker? (project site: https://www.docker.com/) [Y/n] ${NC}"
     read -r -p "" install_docker
-    printf "\n${COLOR}Do you want install Docker-compose? (project site: https://www.docker.com/) [Y/n] ${NC}"
+    printf "\n${COLOR}Do you want install Docker-compose? (project site: https://docs.docker.com/compose/) [Y/n] ${NC}"
     read -r -p "" install_docker_compose
     printf "\n${COLOR}Do you want install Spotify? (project site: https://www.spotify.com/) [Y/n] ${NC}"
     read -r -p "" install_spotify
@@ -75,7 +75,14 @@ fi
 printf "\n${COLOR}Create folders for fonts and i copy font from repository to new folder${NC}"
 mkdir -p ~/.local/share/fonts
 cp -r ~/dev_env/fonts/* ~/.local/share/fonts/
-printf "\n${COLOR}You cant set new font in terminal preferences${NC}"
+printf "\n${COLOR}You can set new font in terminal preferences${NC}"
+
+printf "\n${COLOR}Install pythons dependences${NC}"
+python3 -m pip install jedi
+python3 -m pip install  --user pynvim
+python3 -m pip install flake8
+python3 -m pip install spotify-cli-linux
+python3 -m pip install pynvim
 
 printf "\n${COLOR}Remove original file flake8, init.vim, .tmux.conf and .bash_aliases ${NC}"
 rm ~/.config/nvim/init.vim ~/.bash_aliases ~/.tmux.conf ~/.config/flake8
@@ -87,11 +94,6 @@ ln -s ~/dev_env/tmux.conf ~/.tmux.conf
 ln -s ~/dev_env/flake8 ~/.config/flake8
 
 printf "\n${COLOR}Install plugins for tmux and neovim ${NC} \n"
-python3 -m pip install jedi
-python3 -m pip install  --user pynvim
-python3 -m pip install flake8
-python3 -m pip install spotify-cli-linux
-python3 -m pip install pynvim
 
 ~/.tmux/plugins/tpm/bin/install_plugins
 nvim +PlugInstall +qall
