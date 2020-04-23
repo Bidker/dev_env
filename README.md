@@ -16,7 +16,6 @@ Install script include:
     <li><a href="https://ipython.org/">IPython</a></li>
 </ul>
 <br/>
-<br/>
 <h3>INSTALATION FOR UBUNTU:</h3>
 <b>===========================================</b>
 
