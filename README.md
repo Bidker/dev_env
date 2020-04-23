@@ -1,9 +1,9 @@
 <h3>WHAT IS IN THIS REPOSITORY</h3>
 <b>===========================================</b>
-</br>
-</br>
-My configuration for Neovim and Tmux. </br>
-In .bash_aliases file is my aliases for git and docker. </br>
+<br/>
+<br/>
+My configuration for Neovim and Tmux. <br/>
+In .bash_aliases file is my aliases for git and docker. <br/>
 Install script include:
 <ul>
     <li>[tmux](https://github.com/tmux/tmux/wiki) (cofiguration works for 2.9a version)</li>
@@ -13,10 +13,10 @@ Install script include:
     <li>[Docker Compose](https://docs.docker.com/compose/) (Optional instalation)</li>
     <li>[Spotify](https://www.spotify.com/) (Optional instalation)</li>
     <li>[JetBrains Font](https://www.jetbrains.com/lp/mono/) (You must set it manualy)</li>
+    <li>[IPython](https://ipython.org/)</li>
 </ul>
-</br>
-</br>
-
+<br/>
+<br/>
 <h3>INSTALATION FOR UBUNTU:</h3>
 <b>===========================================</b>
 

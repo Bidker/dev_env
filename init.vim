@@ -18,18 +18,22 @@ Plug 'yggdroot/indentline'
 
 " file openers
 Plug 'scrooloose/nerdtree'
-Plug 'vwxyutarooo/nerdtree-devicons-syntax'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Plug 'vwxyutarooo/nerdtree-devicons-syntax'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'yuki-ycino/fzf-preview.vim'
 
 " completion and clear code
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'davidhalter/jedi-vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 
 " colors of syntax
+Plug 'tweekmonster/django-plus.vim'
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+Plug 'vim-scripts/django.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'luochen1990/rainbow'
 
@@ -141,7 +145,7 @@ set pastetoggle=<F8>
 " shortcruts
 " ---------------
 " trailing space remove, retab and save file
-noremap <leader>w :%s/\s\+$//e<bar>:retab<bar>:w <CR>
+noremap <leader>w :%s/\s\+$//e<bar>:retab<bar>:wa <CR>
 nmap <leader>q :qa<CR>
 nmap <leader>wq :wqa<CR>
 nnoremap <leader>x d$
@@ -154,7 +158,7 @@ nnoremap <leader>l <C-w>l
 nnoremap <leader>so :source ~/.config/nvim/init.vim<CR><ESC>
 
 " for django models
-nnoremap <leader>v averbose_name=_('')<ESC>hi
+nnoremap <leader>V averbose_name=_('')<ESC>hi
 
 " edit neovim config
 nmap <silent> <leader>v :e ~/.config/nvim/init.vim<CR>
@@ -169,6 +173,11 @@ nmap <silent> <leader>v :e ~/.config/nvim/init.vim<CR>
 nmap <Leader>pi :PlugInstall<CR>
 nmap <Leader>pu :PlugInstall!<CR> " Because this also updates
 nmap <Leader>pc :PlugClean<CR>
+
+" ---------------
+" polyglot
+" ---------------
+let g:polyglot_disabled = ['html', 'htmldjango']
 
 " ---------------
 " rainbow
@@ -241,7 +250,7 @@ let g:jedi#rename_command = "<leader>r"
 let g:deoplete#enable_at_startup                    = 1
 let g:deoplete#enable_smart_case                    = 1
 let g:deoplete#sources#syntax#min_keyword_length    = 2
-let g:python3_host_prog                             = '/usr/bin/python3'
+let g:python3_host_prog                             = '/usr/bin/python3.8'
 let g:python_host_prog                              = '/usr/bin/python'
 
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
@@ -254,6 +263,7 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 " ---------------
 " nerdtree-devicons-syntax
 " ---------------
+let g:NERDTreeDirArrows=0
 let g:NERDTreeShowBookmarks=1
 let g:NERDTreeChDirMode=2
 let g:NERDTreeMinimalUI = 1
@@ -367,16 +377,12 @@ endfunction
 set t_Co=256
 
 
-" ---------------
-" tmuxline.vim
-" ---------------
-let g:tmuxline_preset = 'lightline'
-
 
 " ---------------
 " fzf
 " ---------------
 let $FZF_DEFAULT_OPTS=" --color=dark --border"
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 noremap <C-p> :Files<CR>
 
@@ -421,6 +427,25 @@ command! -bang -nargs=* Rg
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview(), <bang>0)
 
+
+" ---------------
+" semshi
+" ---------------
+nmap <silent> <leader>rr :Semshi rename<CR>
+
+nmap <silent> <leader>n :Semshi goto name next<CR>
+nmap <silent> <leader>N :Semshi goto name prev<CR>
+
+nmap <silent> <leader>c :Semshi goto class next<CR>
+nmap <silent> <leader>C :Semshi goto class prev<CR>
+
+nmap <silent> <leader>f :Semshi goto function next<CR>
+nmap <silent> <leader>F :Semshi goto function prev<CR>
+
+nmap <silent> <leader>gu :Semshi goto unresolved first<CR>
+nmap <silent> <leader>gp :Semshi goto parameterUnused first<CR>
+
+let g:semshi#error_sign = v:false
 
 " make last column black
 hi ColorColumn guibg=#000000 ctermbg=0

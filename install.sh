@@ -9,7 +9,7 @@ install_docker='y'
 install_docker_compose='y'
 
 printf "${COLOR}Install tmux and neovim\n ${NC}"
-sudo apt-get install -y tmux neovim
+sudo apt-get install -y tmux neovim ipython
 
 printf "\n${COLOR}Do you want install full dev enviroment (include DBeaver, Docker, Docker-compose and Spotify)? ${NC}\n"
 read -r -p "possible answer: y- [Y]es, n- [N]o, s- i want [S]elect " response
@@ -91,6 +91,8 @@ python3 -m pip install jedi
 python3 -m pip install  --user pynvim
 python3 -m pip install flake8
 python3 -m pip install spotify-cli-linux
+python3 -m pip install pynvim
+
 ~/.tmux/plugins/tpm/bin/install_plugins
 nvim +PlugInstall +qall
 
