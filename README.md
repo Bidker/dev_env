@@ -6,14 +6,14 @@ My configuration for Neovim and Tmux. <br/>
 In .bash_aliases file is my aliases for git and docker. <br/>
 Install script include:
 <ul>
-    <li>[tmux](https://github.com/tmux/tmux/wiki) (cofiguration works for 2.9a version)</li>
-    <li>[NeoVim](https://neovim.io/) (configuration works for v0.3.8 version)</li>
-    <li>[DBeaver](https://dbeaver.io/) (Optional instalation)</li>
-    <li>[Docker](https://www.docker.com/) (Optional instalation)</li>
-    <li>[Docker Compose](https://docs.docker.com/compose/) (Optional instalation)</li>
-    <li>[Spotify](https://www.spotify.com/) (Optional instalation)</li>
-    <li>[JetBrains Font](https://www.jetbrains.com/lp/mono/) (You must set it manualy)</li>
-    <li>[IPython](https://ipython.org/)</li>
+    <li><a href="https://github.com/tmux/tmux/wiki">tmux</a> (cofiguration works for 2.9a version)</li>
+    <li><a href="https://neovim.io/">NeoVim</a> (configuration works for v0.3.8 version)</li>
+    <li><a href="https://dbeaver.io/">DBeaver</a> (Optional instalation)</li>
+    <li><a href="https://www.docker.com/">Docker</a> (Optional instalation)</li>
+    <li><a href="https://docs.docker.com/compose/">Docker Compose</a> (Optional instalation)</li>
+    <li><a href="https://www.spotify.com/">Spotify</a> (Optional instalation)</li>
+    <li><a href="https://www.jetbrains.com/lp/mono/">JetBrains Font</a> (You must set it manualy)</li>
+    <li><a href="https://ipython.org/">IPython</a></li>
 </ul>
 <br/>
 <br/>
