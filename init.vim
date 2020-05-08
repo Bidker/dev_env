@@ -10,6 +10,7 @@ set rtp+=~/.fzf
 
 
 call plug#begin('~/.local/share/nvim/plugged')
+
 " for  gui
 Plug 'ryanoasis/vim-devicons'
 Plug 'freeo/vim-kalisi'
@@ -19,6 +20,7 @@ Plug 'yggdroot/indentline'
 " file openers
 Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
 " Plug 'vwxyutarooo/nerdtree-devicons-syntax'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -156,9 +158,10 @@ nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap <leader>l <C-w>l
 nnoremap <leader>so :source ~/.config/nvim/init.vim<CR><ESC>
+nnoremap <leader>b obreakpoint()<ESC>
 
 " for django models
-nnoremap <leader>V averbose_name=_('')<ESC>hi
+nnoremap <leader>V a, verbose_name=_('')<ESC>hi
 
 " edit neovim config
 nmap <silent> <leader>v :e ~/.config/nvim/init.vim<CR>
@@ -177,7 +180,7 @@ nmap <Leader>pc :PlugClean<CR>
 " ---------------
 " polyglot
 " ---------------
-let g:polyglot_disabled = ['html', 'htmldjango']
+let g:polyglot_disabled = ['html', 'htmldjango', 'py']
 
 " ---------------
 " rainbow
@@ -247,11 +250,11 @@ let g:jedi#rename_command = "<leader>r"
 " ---------------
 " deoplete-jedi
 " ---------------
-let g:deoplete#enable_at_startup                    = 1
-let g:deoplete#enable_smart_case                    = 1
-let g:deoplete#sources#syntax#min_keyword_length    = 2
-let g:python3_host_prog                             = '/usr/bin/python3.8'
-let g:python_host_prog                              = '/usr/bin/python'
+let g:deoplete#enable_at_startup=1
+let g:deoplete#enable_smart_case=1
+let g:deoplete#sources#syntax#min_keyword_length=2
+let g:python3_host_prog='/usr/bin/python3.8'
+let g:python_host_prog='/usr/bin/python'
 
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"

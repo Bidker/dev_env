@@ -33,3 +33,4 @@ alias dlog="docker logs "
 alias drest="docker restart "
 
 alias dcre="docker-compose down && sudo docker-compose build && docker-compose up -d"
+alias dcpdb="docker-compose run --service-ports"
