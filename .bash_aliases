@@ -11,6 +11,7 @@ alias gskroty="cat ~/.bash_aliases | grep git"
 alias gg="git grep"
 alias gb="git branch"
 alias gs="git status -s"
+alias gl="git log --oneline --decorate --pretty=format:'%C(yellow)%h%C(reset)%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 
 alias gco="git checkout"
 alias gca="git commit --amend"

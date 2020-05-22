@@ -22,7 +22,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Plug 'vwxyutarooo/nerdtree-devicons-syntax'
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'yuki-ycino/fzf-preview.vim'
 
@@ -188,6 +188,10 @@ let g:polyglot_disabled = ['html', 'htmldjango', 'py']
 let g:rainbow_active = 1
 let g:rainbow_conf = {
 \   'ctermfgs': ['lightblue', 'green', 'yellow', 'magenta', 'red'],
+\   'separately': {
+\       'nerdtree': 0,
+\       'fzf': 0,
+\   },
 \}
 
 " ---------------
@@ -251,9 +255,8 @@ let g:jedi#rename_command = "<leader>r"
 " deoplete-jedi
 " ---------------
 let g:deoplete#enable_at_startup=1
-let g:deoplete#enable_smart_case=1
 let g:deoplete#sources#syntax#min_keyword_length=2
-let g:python3_host_prog='/usr/bin/python3.8'
+let g:python3_host_prog='/usr/bin/python3.7'
 let g:python_host_prog='/usr/bin/python'
 
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
@@ -385,7 +388,6 @@ set t_Co=256
 " fzf
 " ---------------
 let $FZF_DEFAULT_OPTS=" --color=dark --border"
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 noremap <C-p> :Files<CR>
 

@@ -3,81 +3,16 @@
 COLOR='\033[1;36m'
 NC='\033[0m'
 
-install_dbeaver='y'
-install_spotify='y'
-install_docker='y'
-install_docker_compose='y'
-
 printf "${COLOR}Install tmux and neovim\n ${NC}"
-sudo apt-get install -y tmux neovim ipython
-
-printf "\n${COLOR}Do you want install full dev enviroment (include DBeaver, Docker, Docker-compose and Spotify)? ${NC}\n"
-read -r -p "possible answer: y- [Y]es, n- [N]o, s- i want [S]elect " response
-if [[ "$response" =~ ^([nN])$ ]]
-then
-    install_dbeaver='n'
-    install_spotify='n'
-    install_docker='n'
-    install_docker_compose='n'
-elif [[ "$response" =~ ^([sS]) ]]
-then
-    printf "\n${COLOR}Do you want install DBeaver? (project site: https://dbeaver.io/) [Y/n] ${NC}"
-    read -r -p "" install_dbeaver
-    printf "\n${COLOR}Do you want install Docker? (project site: https://www.docker.com/) [Y/n] ${NC}"
-    read -r -p "" install_docker
-    printf "\n${COLOR}Do you want install Docker-compose? (project site: https://docs.docker.com/compose/) [Y/n] ${NC}"
-    read -r -p "" install_docker_compose
-    printf "\n${COLOR}Do you want install Spotify? (project site: https://www.spotify.com/) [Y/n] ${NC}"
-    read -r -p "" install_spotify
-fi
-
-if [[ "$install_dbeaver" =~ ^([yY])$ ]]
-then
-    printf "\n${COLOR}Install DBeaver${NC}\n"
-    sudo add-apt-repository ppa:serge-rider/dbeaver-ce
-    sudo apt-get update
-    sudo apt-get install -y dbeaver-ce
-fi
-
-if [[ "$install_docker" =~ ^([yY])$ ]]
-then
-    sudo apt-get remove -y docker docker-engine docker.io containerd runc
-    sudo apt-get update
-    sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-comm
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-    sudo add-apt-repository \
-       "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-       $(lsb_release -cs) \
-       stable"
-    sudo apt-get update
-    sudo apt-get install docker-ce docker-ce-cli containerd.io
-    printf "\n"
-    docker -v
-fi
-
-if [[ "$install_docker_compose" =~ ^([yY])$ ]]
-then
-    sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-    sudo chmod +x /usr/local/bin/docker-compose
-    sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
-    printf "\n"
-    docker-compose --version
-fi
-
-if [[ "$install_spotify" =~ ^([yY])$ ]]
-then
-    printf "\n${COLOR}Install spotify and spotify client for linux ${NC}\n"
-    curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
-    echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-    sudo apt-get update && sudo apt-get install spotify-client
-fi
+sudo apt-get install -y tmux neovim python3-pip curl fd-find
+sudo apt-get install -y ipython
 
 printf "\n${COLOR}Create folders for fonts and i copy font from repository to new folder${NC}"
 mkdir -p ~/.local/share/fonts
 cp -r ~/dev_env/fonts/* ~/.local/share/fonts/
 printf "\n${COLOR}You can set new font in terminal preferences${NC}"
 
-printf "\n${COLOR}Install pythons dependences${NC}"
+printf "\n${COLOR}Install pythons dependences${NC}\n"
 python3 -m pip install jedi
 python3 -m pip install  --user pynvim
 python3 -m pip install flake8
@@ -95,11 +30,21 @@ ln -s ~/dev_env/flake8 ~/.config/flake8
 
 printf "\n${COLOR}Install plugins for tmux and neovim ${NC} \n"
 
-~/.tmux/plugins/tpm/bin/install_plugins
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 nvim +PlugInstall +qall
+~/.tmux/plugins/tpm/bin/install_plugins
+
+export FZF_DEFAULT_COMMAND='fd --type f'
 
 printf "\n${COLOR}Source .bashrc ${NC} \n"
 source ~/.bashrc
 
-printf "\n${COLOR}Now you can install vim plugin in DBeaver: https://github.com/dbeaver/dbeaver/issues/3448 ${NC} \n"
+printf "\n${COLOR}Now you can install:
+    DBeaver: https://dbeaver.io/download/
+    and vim plugin for him: https://github.com/dbeaver/dbeaver/issues/3448
+    Docker: https://docs.docker.com/engine/install/ubuntu/
+    Docker-compose: https://docs.docker.com/compose/install/
+    Spotify: https://www.spotify.com/pl/download/linux/
+${NC} \n"
 printf "${COLOR}Done! Enjoy! ${NC} \n\n"
