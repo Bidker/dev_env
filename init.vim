@@ -269,6 +269,7 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 " ---------------
 " nerdtree-devicons-syntax
 " ---------------
+let g:NERDTreeFileExtensionHighlightFullName = 1
 let g:NERDTreeDirArrows=0
 let g:NERDTreeShowBookmarks=1
 let g:NERDTreeChDirMode=2
@@ -278,6 +279,7 @@ let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeStatusLine = -1
 let g:nerdtreedirarrowexpandable='►'
 let g:nerdtreedirarrowcollapsible='▼'
+let g:NERDTreeHighlightFolders = 1
 let g:NERDTreeIgnore = ['\.pyc$']
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
@@ -381,8 +383,6 @@ function! s:MaybeUpdateLightline()
 endfunction
 
 set t_Co=256
-
-
 
 " ---------------
 " fzf

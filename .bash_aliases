@@ -29,7 +29,7 @@ alias g_nw_tsk="git checkout develop && git pull origin develop && git checkout 
 alias d="docker"
 alias dskroty="cat ~/.bash_aliases | grep docker"
 
-alias dps="docker ps"
+alias dps="docker-compose ps"
 alias dlog="docker logs "
 alias drest="docker restart "
 
