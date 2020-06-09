@@ -22,7 +22,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Plug 'vwxyutarooo/nerdtree-devicons-syntax'
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'yuki-ycino/fzf-preview.vim'
 
@@ -261,7 +261,7 @@ let g:jedi#rename_command = "<leader>r"
 " ---------------
 let g:deoplete#enable_at_startup=1
 let g:deoplete#sources#syntax#min_keyword_length=2
-let g:python3_host_prog='/usr/bin/python3.8'
+let g:python3_host_prog='/usr/bin/python3.7'
 let g:python_host_prog='/usr/bin/python'
 
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
@@ -274,6 +274,7 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 " ---------------
 " nerdtree-devicons-syntax
 " ---------------
+let g:NERDTreeFileExtensionHighlightFullName = 1
 let g:NERDTreeDirArrows=0
 let g:NERDTreeShowBookmarks=1
 let g:NERDTreeChDirMode=2
@@ -283,6 +284,7 @@ let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeStatusLine = -1
 let g:nerdtreedirarrowexpandable='►'
 let g:nerdtreedirarrowcollapsible='▼'
+let g:NERDTreeHighlightFolders = 1
 let g:NERDTreeIgnore = ['\.pyc$']
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
@@ -328,8 +330,20 @@ let g:lightline = {
 \   'filename': 'LightlineFilename',
 \   'filetype': 'MyFiletype',
 \   'fileformat': 'MyFileformat',
+\   'readonly': 'LightlineReadonly',
 \ },
 \}
+
+augroup filetype_nerdtree
+    au!
+    au FileType nerdtree call s:disable_lightline_on_nerdtree()
+    au WinEnter,BufWinEnter,TabEnter * call s:disable_lightline_on_nerdtree()
+augroup END
+
+fu s:disable_lightline_on_nerdtree() abort
+    let nerdtree_winnr = index(map(range(1, winnr('$')), {_,v -> getbufvar(winbufnr(v), '&ft')}), 'nerdtree') + 1
+    call timer_start(0, {-> nerdtree_winnr && setwinvar(nerdtree_winnr, '&stl', '%#Normal#')})
+endfu
 
 function! MyFiletype()
   return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() . ' ' : 'no ft') : ''
@@ -376,6 +390,10 @@ function! LightlinterAirblade()
   return printf('+%d ~%d -%d', a, m, r)
 endfunction
 
+function! LightlineReadonly()
+    return &readonly ? 'RO ' : ''
+endfunction
+
 "autocmd BufWritePost * call s:MaybeUpdateLightline() works after save
 
 " Update and show lightline but only if it's visible (e.g., not in Goyo)
@@ -387,13 +405,10 @@ endfunction
 
 set t_Co=256
 
-
-
 " ---------------
 " fzf
 " ---------------
 let $FZF_DEFAULT_OPTS=" --color=dark --border"
-"let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 noremap <C-p> :Files<CR>
 
@@ -457,6 +472,7 @@ nmap <silent> <leader>gu :Semshi goto unresolved first<CR>
 nmap <silent> <leader>gp :Semshi goto parameterUnused first<CR>
 
 let g:semshi#error_sign = v:false
+let g:semshi#tolerate_syntax_errors = v:true
 
 " make last column black
 hi ColorColumn guibg=#000000 ctermbg=0

@@ -23,4 +23,4 @@ Install script include:
     sudo apt-get -y install git && \
     cd && \
     git clone git@github.com:Bidker/dev_env.git  && \
-    bash ~/rcfile/install.sh
+    bash ~/dev_env/install.sh
