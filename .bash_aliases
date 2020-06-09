@@ -12,6 +12,9 @@ alias gg="git grep"
 alias gb="git branch"
 alias gs="git status -s"
 
+alias gf="git fetch -av"
+alias gl="git log --oneline --decorate --pretty=format:'%C(yellow)%h%C(reset)%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
+
 alias gco="git checkout"
 alias gca="git commit --amend"
 alias gcm="git commit -m"
@@ -28,7 +31,7 @@ alias g_nw_tsk="git checkout develop && git pull origin develop && git checkout 
 alias d="docker"
 alias dskroty="cat ~/.bash_aliases | grep docker"
 
-alias dps="docker ps"
+alias dps="docker-compose ps"
 alias dlog="docker logs "
 alias drest="docker restart "
 

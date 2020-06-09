@@ -90,15 +90,14 @@ set formatoptions=crql
 " ---------------
 " Text Format
 " ---------------
-set tabstop=4
+autocmd FileType python set tabstop=4 softtabstop=4 shiftwidth=4 " Tabs under smart indent
+autocmd FileType javascript,vue set tabstop=2 softtabstop=2 shiftwidth=2 " Tabs under smart indent
 set backspace=2 " Delete everything with backspace
-set shiftwidth=4 " Tabs under smart indent
 set cindent
 set autoindent
 set smarttab
 set expandtab
 set backspace=2
-set softtabstop=4
 set foldmethod=indent
 
 
@@ -166,6 +165,12 @@ nnoremap <leader>V a, verbose_name=_('')<ESC>hi
 " edit neovim config
 nmap <silent> <leader>v :e ~/.config/nvim/init.vim<CR>
 
+" tabs in normal mode
+nnoremap <Tab> >>_
+nnoremap <S-Tab> <<_
+vnoremap <Tab> >
+vnoremap <S-Tab> <
+
 " ---------------
 " shortcruts for plugins
 " ---------------
@@ -188,6 +193,10 @@ let g:polyglot_disabled = ['html', 'htmldjango', 'py']
 let g:rainbow_active = 1
 let g:rainbow_conf = {
 \   'ctermfgs': ['lightblue', 'green', 'yellow', 'magenta', 'red'],
+\   'separately': {
+\       'nerdtree': 0,
+\       'fzf': 0,
+\   },
 \}
 
 " ---------------
@@ -214,18 +223,18 @@ nmap <Leader>gm :Merginal<CR>
 " ---------------
 " ale
 " ---------------
-let g:ale_sign_warning = '◆'
+let g:ale_sign_warning = '⚠'
 let g:ale_sign_error = '✗'
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
-let g:ale_linters = {'vue': ['eslint'], 'python': ['flake8', 'pylint'], 'javascript': ['eslint']}
+let g:ale_linters = {'python': ['flake8', 'pylint']}
 let g:ale_python_flake8_executable = 'flake8'
 let g:ale_linters_explicit = 1
 let g:ale_echo_msg_format = '[%linter%] %code%: %s'
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'always'
-let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace'], 'python': ['autopep8']}
+let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace'], 'python': ['autopep8'], 'javascript': ['eslint']}
 
 highlight link ALEWarningSign String
 highlight link ALEErrorSign Title
@@ -251,7 +260,6 @@ let g:jedi#rename_command = "<leader>r"
 " deoplete-jedi
 " ---------------
 let g:deoplete#enable_at_startup=1
-let g:deoplete#enable_smart_case=1
 let g:deoplete#sources#syntax#min_keyword_length=2
 let g:python3_host_prog='/usr/bin/python3.8'
 let g:python_host_prog='/usr/bin/python'
@@ -300,7 +308,7 @@ let g:lightline = {
 \    ],
 \   'right': [
 \       ['percent', 'lineinfo'],
-\       ['fileencoding', 'fileformat', 'filetype', 'readonly'],
+\       ['readonly', 'fileencoding', 'fileformat', 'filetype'],
 \       ['linter_warnings', 'linter_errors', 'linter_ok'],
 \   ],
 \ },
@@ -335,7 +343,7 @@ function! LightlineLinterWarnings() abort
   let l:counts = ale#statusline#Count(bufnr(''))
   let l:all_errors = l:counts.error + l:counts.style_error
   let l:all_non_errors = l:counts.total - l:all_errors
-  return l:counts.total == 0 ? '' : printf('%d ◆', all_non_errors)
+  return l:counts.total == 0 ? '' : printf('%d ⚠', all_non_errors)
 endfunction
 
 function! LightlineLinterErrors() abort
@@ -385,7 +393,7 @@ set t_Co=256
 " fzf
 " ---------------
 let $FZF_DEFAULT_OPTS=" --color=dark --border"
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+"let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 noremap <C-p> :Files<CR>
 
