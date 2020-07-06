@@ -20,6 +20,7 @@ Plug 'yggdroot/indentline'
 " file openers
 Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Plug 'vwxyutarooo/nerdtree-devicons-syntax'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -44,7 +45,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'idanarye/vim-merginal'
 
-" autoclose brackets and html tags
+" autoclose brackets and html tags, autoadd semilicon
 Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
 
@@ -162,6 +163,9 @@ nnoremap <leader>b obreakpoint()<ESC>
 " for django models
 nnoremap <leader>V a, verbose_name=_('')<ESC>hi
 
+"for css
+:set omnifunc=csscomplete#CompleteCSS
+
 " edit neovim config
 nmap <silent> <leader>v :e ~/.config/nvim/init.vim<CR>
 
@@ -170,6 +174,19 @@ nnoremap <Tab> >>_
 nnoremap <S-Tab> <<_
 vnoremap <Tab> >
 vnoremap <S-Tab> <
+
+" resize for NERDTree
+map <F1> :vertical resize 31<CR> <BAR> <CR>
+nnoremap <F2> :call FuncElasticResize() <CR>
+
+function! FuncElasticResize()
+    if winwidth(0) == 31
+      vertical resize 90<CR>
+    else
+      vertical resize 31<CR>
+    endif
+endfunction
+
 
 " ---------------
 " shortcruts for plugins
@@ -227,7 +244,7 @@ let g:ale_sign_warning = '⚠'
 let g:ale_sign_error = '✗'
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
-let g:ale_linters = {'python': ['flake8', 'pylint']}
+let g:ale_linters = {'python': ['flake8', 'pylint']} ", 'vue': ['eslint'], 'javascript': ['eslint']}
 let g:ale_python_flake8_executable = 'flake8'
 let g:ale_linters_explicit = 1
 let g:ale_echo_msg_format = '[%linter%] %code%: %s'
@@ -473,6 +490,11 @@ nmap <silent> <leader>gp :Semshi goto parameterUnused first<CR>
 
 let g:semshi#error_sign = v:false
 let g:semshi#tolerate_syntax_errors = v:true
+
+" ---------------
+" closetag
+" ---------------
+let g:closetag_filetypes = 'html,xhtml,phtml,vue'
 
 " make last column black
 hi ColorColumn guibg=#000000 ctermbg=0
