@@ -18,6 +18,7 @@ python3 -m pip install  --user pynvim
 python3 -m pip install flake8
 python3 -m pip install spotify-cli-linux
 python3 -m pip install pynvim
+python3 -m pip install --user smdv
 
 printf "\n${COLOR}Remove original file flake8, init.vim, .tmux.conf and .bash_aliases ${NC}"
 rm ~/.config/nvim/init.vim ~/.bash_aliases ~/.tmux.conf ~/.config/flake8

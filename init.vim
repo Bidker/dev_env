@@ -49,6 +49,9 @@ Plug 'idanarye/vim-merginal'
 Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
 
+" markdown
+Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+
 " mayby in futer:
 " snippets
 " Plug 'SirVer/ultisnips'
@@ -495,6 +498,13 @@ let g:semshi#tolerate_syntax_errors = v:true
 " closetag
 " ---------------
 let g:closetag_filetypes = 'html,xhtml,phtml,vue'
+
+
+" ---------------
+" vim-instant-markdown
+" ---------------
+filetype plugin on
+let g:instant_markdown_autostart = 1
 
 " make last column black
 hi ColorColumn guibg=#000000 ctermbg=0
