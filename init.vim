@@ -11,7 +11,7 @@ set rtp+=~/.fzf
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-" for  gui
+" for gui
 Plug 'ryanoasis/vim-devicons'
 Plug 'freeo/vim-kalisi'
 Plug 'itchyny/lightline.vim'
@@ -71,6 +71,7 @@ highlight LineNr guibg=#202020 ctermbg=0
 set laststatus=2 " Always show the statusline
 set cmdheight=2
 set encoding=utf-8
+set guifont=JetBraiinsMonoMedium:h11
 
 
 " ---------------
